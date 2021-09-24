@@ -193,7 +193,7 @@ function getAllQuestionsForCategory($category_id){
 }
 
 function saveQuestion($body,$image_target_name,$poens,$category_id){
-dd($category_id);
+
     global $db;
     $sql = $db->prepare("INSERT INTO questions (question,category_id,image,poens) 
     VALUES(?,?,?,?)");
