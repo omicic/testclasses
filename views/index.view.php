@@ -19,7 +19,7 @@
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Body</th>
-                        <th scope="col">Points</th>
+                        <!--  <th scope="col">Points</th> -->
                         <?php if($role !='admin'): ?>
                         <th scope="col">Author</th>
                         <?php endif; ?>
@@ -34,7 +34,7 @@
                     <tr>
                         <td><?php echo $test['title'] ?></td>
                         <td><?php echo $test['body'] ?></td>
-                        <td><?php echo $test['points'] ?></td>
+                        <!--  <td><--?php echo $test['points'] ?></td> -->
 
                         <?php if($role!='admin'): ?>
                         <td><?php echo $test['first_name'] . " " . $test['last_name']  ?></td>

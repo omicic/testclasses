@@ -42,7 +42,7 @@
                             style="width:30%" value="<?php echo substr($test['timer'],0,5)?>">
                         <br>
 
-                        <button type="submit" class="btn btn-info form-control">Change</button>
+                        <button type="submit" class="btn btn-info form-control">Show/Change</button>
                     </form>
                 </div>
             </div>

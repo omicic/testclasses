@@ -49,6 +49,7 @@
                     <a class="btn btn-outline-danger" href="logout.php">Logout</a>
                     <?php endif; ?>
                     <?php else: ?>
+                    <a href="user_posts.php" class="btn btn-outline-warning">All posts</a>
                     <a href="login.php" class="btn btn-outline-primary">Login</a>
                     <a href="register.php" class="btn btn-outline-info">Register</a>
                     <?php endif; ?>
