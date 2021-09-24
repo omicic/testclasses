@@ -31,8 +31,9 @@ if(isset($category)){
         //dd("2");
         if($user['role']=="admin"){
             if(isset($user['id'])){
-                $all_public_tests = getAllTestsFromAdminCategory($user['id'],$category);
-        
+                //dd($category);
+                $all_public_tests = getAllTestsForAdminCategory($user['id'],$category);
+               
             }    
         } else{
             //dd("3");

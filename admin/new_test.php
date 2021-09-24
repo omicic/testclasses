@@ -33,9 +33,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(count($errors) == 0){
      
             //save post to database
-            if(saveTest($admin['id'],$title,$body,$_POST['category'],$_POST['public'], $time)){
-             
-                    header("Location: all_tests.php");
+            $id = saveTest($admin['id'],$title,$body,$_POST['category'],$_POST['public'], $time);
+            if($id){
+                header("Location: add_questions.php?id=" . $id);
             }else{
                     $ups = "Ups, something went wrong";
             }    

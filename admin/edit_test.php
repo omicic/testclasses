@@ -35,7 +35,7 @@ $test = getSingleTest($id);
         //dd($title);
         if(editTest($id,$title,$body,$_POST['category'],$_POST['public'],$timer)){
             //dd(true);
-            header("Location: all_tests.php");
+            header("Location: add_questions.php?id=" . $id);
         }else{
             hedaer("Location: /testclass/error.php");
         }

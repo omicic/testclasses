@@ -72,7 +72,7 @@ function getAllTestsForAdmin($admin_id){
 }
 
 function getAllTestsForAdminCategory($admin_id,$category_id){
-   //dd(true);
+  // dd(true);
     global $db;
     $sql = $db->prepare("SELECT * FROM tests WHERE admin_id=? AND category_id=?");
     $sql->bind_param('ii',$admin_id, $category_id);
@@ -87,25 +87,6 @@ function getAllTestsForAdminCategory($admin_id,$category_id){
         return false;
     }
 }
-/* 
-function getAllTestsFromAdminCategory($admin_id,$category_id){
-    //dd($admin_id);
-    global $db;
-    $sql = $db->prepare("SELECT * FROM tests WHERE admin_id=? AND category_id=?");
-    $sql->bind_param('ii',$admin_id,$category_id);
-    $sql->execute();
-
-    if($sql->errno == 0){
-        
-        $result = $sql->get_result();
-        $tests = $result->fetch_all(MYSQLI_ASSOC);
-        //dd($tests);
-        return $tests;
-    }else{
-        return false;
-    }
-} */
-
 
 function saveTest($admin_id,$title,$body,$category,$public,$timer){
     
@@ -114,9 +95,10 @@ function saveTest($admin_id,$title,$body,$category,$public,$timer){
                         VALUES(?,?,?,?,?,?)");
     $sql->bind_param('issiis',$admin_id,$title,$body,$category,$public,$timer);
     $sql->execute();
+    $id=$sql->insert_id;
 
     if($sql->errno == 0){
-        return true;
+        return $id;
     }else{
         return false;
     }
