@@ -15,5 +15,20 @@ public function __construct($db){
         return $query->fetchAll(PDO::FETCH_OBJ);
         
     }
+
+    public function selectById($table,$id){
+       //var_dump($id);
+        $sql = "SELECT * FROM {$table} WHERE id=?";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+      }
+
+      public function deleteById($table,$id){
+        $sql = "DELETE FROM {$table} WHERE id=?";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
+
+    }
 }
 ?>

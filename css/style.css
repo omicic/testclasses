@@ -1,0 +1,16 @@
+img {
+  width: 100%;
+  display: block;
+}
+
+.card {
+  border: none;
+}
+
+.card-header {
+  padding: 0 !important;
+}
+
+.card-body {
+  background-color: navajowhite;
+}/*# sourceMappingURL=style.css.map */

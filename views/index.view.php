@@ -31,24 +31,31 @@
     <div class="row">
         <div class="col-8 offset-2">
             <?php foreach($posts as $post): ?>
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h3><?php echo $post->title; ?><small class="float-right">
-                            <?php if(isset($_SESSION['loggedUser']) && $post->user_id == $_SESSION['loggedUser']->id): ?>
-                            <a href="index.php?post_id=<?php echo $post->id?>" class="btn btn-sm btn-danger">Remove</a>
-                            <?php endif; ?>
-                        </small></h3>
+            <div class="card mb-3 flex-row">
+                <div class="card-header col-4">
+                    <img src="uploads/<?php echo $post->imagepath?>" alt="">
                 </div>
                 <div class="card-body">
-                    <p><?php echo $post->description ?></p>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm float-right">
-                        <?php $date = date_create($post->created_at); echo date_format($date,"Y-m-d"); ?>
-                    </button>
-                    <button class="btn btn-warning btn-sm float-left">
-                        <?php echo $user->getUserWithId($post->user_id)->name; ?>
-                    </button>
+
+                    <div class="row justify-content-between">
+                        <button class="btn btn-warning btn-sm col-md-4">
+                            <?php echo $user->getUserWithId($post->user_id)->name; ?>&nbsp;
+                            <?php $date = date_create($post->created_at); echo date_format($date,"Y-m-d"); ?>
+                        </button>
+                        <div class="col-md-8 ">
+                            <?php if(isset($_SESSION['loggedUser']) && $post->user_id == $_SESSION['loggedUser']->id): ?>
+                            <a href=" index.php?post_id=<?php echo $post->id?>" class="btn btn-sm btn-danger ml-auto"> X
+                            </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <h3><?php echo $post->title; ?></h3>
+
+                    <p><?php echo substr($post->description,0,50) . "[...]" ?></p>
+
                 </div>
             </div>
 
