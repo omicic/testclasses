@@ -1,10 +1,9 @@
-img {
-  width: 100%;
-  display: block;
-}
-
 .card {
   border: none;
+}
+.card img {
+  width: 100%;
+  display: block;
 }
 
 .card-header {
@@ -12,5 +11,5 @@ img {
 }
 
 .card-body {
-  background-color: navajowhite;
+  background-color: antiquewhite;
 }/*# sourceMappingURL=style.css.map */

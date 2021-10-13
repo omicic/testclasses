@@ -24,7 +24,7 @@ class User extends QueryBuilder {
         if(isset($_POST['email'])){
             $email = $_POST['email'];
             $password = $_POST['password'];
-            var_dump($email);
+           // var_dump($email);
 
             $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             $query = $this->db->prepare($sql);
