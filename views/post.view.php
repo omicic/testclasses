@@ -2,7 +2,7 @@
 ?>
 
 <nav class="navbar navbar-expand navbar-light bg-light">
-    <a href="" class="navbar-brand">Bloger</a>
+    <a href="index.php" class="navbar-brand">Bloger</a>
     <ul class="navbar-nav ml-auto">
         <?php if(isset($_SESSION['loggedUser'])): ?>
         <li class="nav-link">
@@ -50,11 +50,25 @@
             <h3><?php echo $posts[0]->title; ?></h3>
             <p><?php echo $posts[0]->description ?></p><br>
 
+            <?php var_dump($voted); if($_SESSION['loggedUser'] && !$voted): ?>
+            <a href="voteUp.php?post_id=<?php echo $posts[0]->id ?>" class="badge bg-primary"><i
+                    class="far fa-thumbs-up"></i>
+                <?php echo $likes ?>
+            </a>
+            <?php else: ?>
+            <span class="badge bg-primary"><i class="far fa-thumbs-up"></i> <?php echo $likes; ?></span>
+            <?php endif; ?>
 
             <?php if(isset($_SESSION['loggedUser']) && $posts[0]->user_id==$_SESSION['loggedUser']->id): ?>
             <a href="edit_post.php?post_id=<?php echo $posts[0]->id?>" class="btn btn-sm btn-info float-right">Edit
             </a>
             <?php endif; ?>
+
+        </div>
+
+        <div class="card-footer">
+
+
 
         </div>
     </div>

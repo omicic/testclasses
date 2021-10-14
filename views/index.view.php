@@ -2,7 +2,7 @@
 ?>
 
 <nav class="navbar navbar-expand navbar-light bg-light">
-    <a href="" class="navbar-brand">Bloger</a>
+    <a href="index.php" class="navbar-brand">Bloger</a>
     <ul class="navbar-nav ml-auto">
         <?php if(isset($_SESSION['loggedUser'])): ?>
         <li class="nav-link">

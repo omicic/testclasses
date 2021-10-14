@@ -28,6 +28,10 @@ public function __construct($db){
         $sql = "DELETE FROM {$table} WHERE id=?";
         $query = $this->db->prepare($sql);
         $query->execute([$id]);
+
+        $result = $query->get_result();
+        $likes = $result->num_rows;
+        return $likes;
     }
 }
 ?>

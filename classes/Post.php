@@ -116,13 +116,18 @@ public $errors=array();
                 }
               }
         }
-      return $this;
+      //return $this;
+  }
 
+
+
+  /*   if($query->errno == 0){
+    $result = $query->get_result();
+    $likes = $result->num_rows;
+    return $likes; */
+   // }
+ // }
 
 
 
 }
-
-
-
-  }

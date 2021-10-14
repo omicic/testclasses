@@ -7,6 +7,11 @@
 .card {
   border: none;
 }
+.card img {
+  width: 100% !important;
+  height: 100%;
+  display: block !important;
+}
 
 .card-header {
   padding: 0 !important;
@@ -19,4 +24,13 @@
 img {
   width: 100%;
   display: block !important;
+}
+
+.bg-primary {
+  background-color: transparent !important;
+  font-size: 1.1rem;
+}
+.bg-primary:hover {
+  background-color: blue;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
