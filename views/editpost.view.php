@@ -24,7 +24,8 @@
             <?php if($post->newPostStatus): ?>
             <div class="alert alert-success">Post edited</div>
             <?php endif; ?>
-            <form action="edit_post.php" method="POST" enctype="multipart/form-data">
+            <form action="edit_post.php?post_id=<?php echo $data[0]->id;?>" method="POST" enctype="multipart/form-data">
+                <!--  <input type="text" name="id" value="<--?php echo $data[0]->id;?>"> -->
                 <input type="text" name="post_title" class="form-control" value="<?php echo $data[0]->title;?>"><br>
 
                 <img src="uploads/<?php echo $data[0]->imagepath?>" alt="">
@@ -43,13 +44,6 @@
                 <?php if(isset($data->description_error)): ?>
                 <p class="text-danger"><?php echo $data->description_error ?></p>
                 <?php endif; ?>
-
-
-                <!--<select name="category" class="form-control">
-                        <--?php foreach($categories as $cat): ?>
-                            <option value="<--?php echo $cat['id'] ?>"><--?php echo $cat['name'] ?></option>
-                        <--?php endforeach; ?>
-                </select><br> -->
 
                 <select name="public" class="form-control">
                     <option value="1" value="<?php ($data[0]->public == 1)? "selected" : " " ;?>">Public</option>

@@ -52,7 +52,7 @@
 
 
             <?php if(isset($_SESSION['loggedUser']) && $posts[0]->user_id==$_SESSION['loggedUser']->id): ?>
-            <a href="edit.php?post_id=<?php echo $posts[0]->id?>" class="btn btn-sm btn-info float-right">Edit
+            <a href="edit_post.php?post_id=<?php echo $posts[0]->id?>" class="btn btn-sm btn-info float-right">Edit
             </a>
             <?php endif; ?>
 

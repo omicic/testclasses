@@ -57,16 +57,44 @@ public $errors=array();
               }
         }
       return $this;
+  }
+
+  public function deletePost($id){
+      $sql = "DELETE FROM posts WHERE id=?";
+      $query = $this->db->prepare($sql);
+      $query->execute([$id]);
+  }
+
+  
+  public function update($id){
+   // var_dump($id);
+    if(!isset($_POST['post_title']) || empty($_POST['post_title'])){
+      $this->title_error = "Title is required";
+      array_push($this->errors,$this->title_error );
+    }else{
+      $title = $_POST['post_title'];
     }
 
-    public function getErrors(){
-      return $this->errors;
+    if(!isset($_POST['post_description']) || empty($_POST['post_title'])){
+      $this->description_error="Description is required";
+      array_push($this->errors, $this->description_error);
+    }else{
+      $description = $_POST['post_description'];  
     }
 
-    public function deletePost($id){
-        $sql = "DELETE FROM posts WHERE id=?";
-        $query = $this->db->prepare($sql);
-        $query->execute([$id]);
+    $sql = "UPDATE posts SET title=?, description=?, update_at=NOW() WHERE id=? ";
+    $query = $this->db->prepare($sql);
+    $query->execute([$title, $description, $id]);
 
-    }
+   if($query){
+     return true;
+        //$this->editedPostStatus=true;
+    }else{
+      $this->editedPostStatus=false;
+    } 
+
 }
+
+
+
+  }
