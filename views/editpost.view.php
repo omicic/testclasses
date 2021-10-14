@@ -26,13 +26,16 @@
             <?php endif; ?>
             <form action="edit_post.php?post_id=<?php echo $data[0]->id;?>" method="POST" enctype="multipart/form-data">
                 <!--  <input type="text" name="id" value="<--?php echo $data[0]->id;?>"> -->
-                <input type="text" name="post_title" class="form-control" value="<?php echo $data[0]->title;?>"><br>
 
-                <img src="uploads/<?php echo $data[0]->imagepath?>" alt="">
-                <input type="file" name="file" class="form-control"><br>
-                <?php if(isset($data->image_error)): ?>
-                <p class="text-danger"><?php echo $data->image_error ?></p>
-                <?php endif; ?>
+                <div>
+                    <input type="text" name="post_title" class="form-control" value="<?php echo $data[0]->title;?>"><br>
+                    <img class="fileimage" src="uploads/<?php echo $data[0]->imagepath?>" alt="">
+                    <input type="file" name="file" class="filepath"><br>
+                    <?php if(isset($data->image_error)): ?>
+                    <p class="text-danger"><?php echo $data->image_error ?></p>
+                    <?php endif; ?>
+                </div>
+
 
 
                 <?php if(isset($data->title_error)): ?>

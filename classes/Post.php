@@ -82,16 +82,44 @@ public $errors=array();
       $description = $_POST['post_description'];  
     }
 
-    $sql = "UPDATE posts SET title=?, description=?, update_at=NOW() WHERE id=? ";
-    $query = $this->db->prepare($sql);
-    $query->execute([$title, $description, $id]);
+    $image_name = $_FILES['file']['name'];
 
-   if($query){
-     return true;
-        //$this->editedPostStatus=true;
-    }else{
-      $this->editedPostStatus=false;
-    } 
+    if(!isset($_FILES['file']['name']) || empty($_FILES['file']['name'])){
+      $this->image_error = "Image is required";
+      array_push($this->errors, $this->image_error);
+    }
+
+
+    if(count($this->errors)==0){
+              $target_dir = $_SERVER['DOCUMENT_ROOT']."/testclasses/uploads/";
+          
+              $target_name = time().$image_name;
+              $target_file = $target_dir.$target_name;
+
+              $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+              $extensions_arr = ["png",'gif','jpg','jpeg'];
+
+
+              if(in_array($imageFileType,$extensions_arr)){
+                //var_dump($target_file);
+                if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
+                // var_dump('1');
+                    $sql = "UPDATE posts SET title=?, description=?, imagepath=?, update_at=NOW() WHERE id=? ";
+                    $query = $this->db->prepare($sql);
+                    $query->execute([$title, $description,  $target_name, $id]);
+                
+                    if($query){
+                      return true;
+                    }else{
+                      return false;
+                    } 
+                }
+              }
+        }
+      return $this;
+
+
+
 
 }
 
