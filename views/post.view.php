@@ -69,8 +69,30 @@
         </div>
 
         <div class="card-footer">
+            <h4>Comments</h4>
+            <hr>
+            <?php if(isset($_SESSION['loggedUser'])): ?>
+            <form action="add_comment.php" method="POST">
+                <input type="hidden" name="post_id" class="form-control" value="<?php echo $posts[0]->id?>">
+                <textarea name="body" class="form-control" cols="15" rows="5"
+                    placeholder="Enter Comment"></textarea><br>
+                <button name="add_comment_btn" class="btn btn-primary float-right">Send</button>
+            </form>
+            <?php endif; ?>
+        </div>
+
+        <div class="card-footer">
+
+            <?php foreach ($comments as $key => $comment): ?>
+            <div class="class-header">
+                <dl>
+                    <dd><?php echo $comment->name?></dd>
+                    <dt class="ml-4"><?php echo $comment->body ?></dt>
+                </dl>
+            </div>
 
 
+            <?php endforeach; ?>
 
         </div>
     </div>
