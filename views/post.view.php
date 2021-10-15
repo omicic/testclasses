@@ -50,13 +50,15 @@
             <h3><?php echo $posts[0]->title; ?></h3>
             <p><?php echo $posts[0]->description ?></p><br>
 
-            <?php var_dump($voted); if($_SESSION['loggedUser'] && !$voted): ?>
+            <?php if(isset($_SESSION['loggedUser'])): ?>
+            <!--ulogovan-->
             <a href="voteUp.php?post_id=<?php echo $posts[0]->id ?>" class="badge bg-primary"><i
                     class="far fa-thumbs-up"></i>
                 <?php echo $likes ?>
             </a>
+
             <?php else: ?>
-            <span class="badge bg-primary"><i class="far fa-thumbs-up"></i> <?php echo $likes; ?></span>
+            <span><i class="far fa-thumbs-up"></i><?php echo $likes ?></span>
             <?php endif; ?>
 
             <?php if(isset($_SESSION['loggedUser']) && $posts[0]->user_id==$_SESSION['loggedUser']->id): ?>

@@ -8,7 +8,13 @@ if(isset($_GET['post_id'])){
 $posts = $post->selectById('posts', $_GET['post_id']);
 $likes = $like->getLikes($_GET['post_id']);
 //var_dump($_SESSION['loggedUser']);
-$voted = $like->voted($_SESSION['loggedUser']->id,$_GET['post_id']);
+if(isset($_SESSION['loggedUser'])){
+    //$voted = $like->voted($_SESSION['loggedUser']->id,$_GET['post_id']);
+    //var_dump($voted);
+} else{
+    
+}
+
 
 //var_dump($voted);
 }

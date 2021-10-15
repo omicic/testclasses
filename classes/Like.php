@@ -13,7 +13,6 @@ class Like extends QueryBuilder{
 
  function voted($user_id,$post_id)
 {
- 
     $sql = "SELECT * FROM likes WHERE user_id=? AND post_id=?";
     $query = $this->db->prepare($sql);
     $query->execute([$user_id,$post_id]);
@@ -26,6 +25,21 @@ class Like extends QueryBuilder{
             return false;
         }
 
+}
+
+public function addVote($user_id,$post_id){
+
+    $sql = "INSERT INTO likes VALUES (NULL,?,?)";
+    $query = $this->db->prepare($sql);
+    $query->execute([$user_id,$post_id]);
+
+}
+
+public function removeVote($user_id,$post_id){
+    $sql = "DELETE FROM likes WHERE user_id=? AND post_id=?";
+    $query = $this->db->prepare($sql);
+    $query->execute([$user_id, $post_id]);
+ 
 }
 
 
