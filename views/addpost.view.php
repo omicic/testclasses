@@ -14,7 +14,7 @@
     </ul>
 </nav>
 
-<div class="jumbotron text-center">
+<div class="header text-center">
     <h4>Add New Post</h4>
 </div>
 

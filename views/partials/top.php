@@ -11,7 +11,29 @@
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-    <title>Blog</title>
+    <title>Webclasses</title>
 </head>
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a href="index.php" class="navbar-brand">Webclasses</a>
+    <ul class="navbar-nav ml-auto">
+        <?php if(isset($_SESSION['loggedUser'])): ?>
+        <li class="nav-link">
+            <p>Hello, <?php echo $_SESSION['loggedUser']->name; ?></p>
+        </li>
+        <!--<li class="nav-item">
+            <a href="add_post.php" class="nav-link">Add Post</a>
+        </li> -->
+        <li class="nav-item">
+            <a href="logout.php" class="nav-link">Logout</a>
+        </li>
+        <?php else: ?>
+        <li class="nav-item">
+            <a href="login_register.php" class="nav-link">Login/Register</a>
+        </li>
+        <?php endif; ?>
+
+    </ul>
+</nav>
 
 <body>

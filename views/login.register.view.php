@@ -1,16 +1,17 @@
 <?php require_once 'partials/top.php' ?>
 
 
-<nav class="navbar navbar-expand navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand navbar-light bg-light">
     <a href="" class="navbar-brand">Bloger</a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a href="index.php" class="nav-link">Back to Blog</a>
         </li>
     </ul>
-</nav>
+</nav> -->
 
-<div class="jumbotron text-center">
+<div class="header text-center mb-5">
+    <a href="index.php" class="nav-link">Back to Posts</a>
     <h4>Login/Register</h4>
 </div>
 
@@ -24,9 +25,9 @@
                 <button class="form-control btn btn-primary form-control" name="loginBtn">Login</button>
             </form>
             <?php if($user->loggedUser): ?>
-            <div class="alert alert-success">Uspesno logovanje <a href="index.php">Idi na blog</a></div>
+            <div class="alert alert-success">Success Log In <a href="index.php">Go to home page</a></div>
             <?php elseif(isset($_POST['loginBtn'])): ?>
-            <div class="alert alert-danger">Username i password pogresni.</div>
+            <div class="alert alert-danger">Wrong username and password</div>
             <?php endif; ?>
         </div>
         <div class="col-6">
@@ -40,7 +41,7 @@
             </form>
 
             <?php if($user->register_result): ?>
-            <div class="alert alert-success">Uspesna registracija. Ulogujte se.</div>
+            <div class="alert alert-success">Success registration. Log In.</div>
             <?php endif; ?>
         </div>
     </div>

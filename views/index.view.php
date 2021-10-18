@@ -1,35 +1,41 @@
 <?php require_once 'partials/top.php';
 ?>
 
-<nav class="navbar navbar-expand navbar-light bg-light">
-    <a href="index.php" class="navbar-brand">Bloger</a>
-    <ul class="navbar-nav ml-auto">
-        <?php if(isset($_SESSION['loggedUser'])): ?>
-        <li class="nav-link">
-            <p>Hello, <?php echo $_SESSION['loggedUser']->name; ?></p>
-        </li>
-        <li class="nav-item">
-            <a href="add_post.php" class="nav-link">Add Post</a>
-        </li>
-        <li class="nav-item">
-            <a href="logout.php" class="nav-link">Logout</a>
-        </li>
-        <?php else: ?>
-        <li class="nav-item">
-            <a href="login_register.php" class="nav-link">Login/Register</a>
-        </li>
-        <?php endif; ?>
 
-    </ul>
-</nav>
 
-<div class="jumbotron text-center">
-    <h4>Bloger Posts</h4>
+<!--navigacija u zavisnosti od role-->
+<div class="text-center">
+    <!--ako je logovan korisnik-->
+    <?php if(isset($_SESSION['loggedUser'])): ?>
+
+    <?php if($_SESSION['loggedUser']->role == 'admin'): ?>
+    <div class="rolenav d-flex flex-row justify-content-center align-items-center mx-auto">
+        <ul class="d-flex flex-row justify-content-between align-items-center">
+            <li class="mx-3"><a href="show_editors.php">Show Editors</a></li>
+            <li class="mx-3"><a href="add_user.php">Add Editor</a></li>
+        </ul>
+    </div>
+
+    <?php else: ?>
+    <?php if($_SESSION['loggedUser']->role == 'user') ?>
+    <!--  <h4>Student Posts</h4> -->
+    <div class="rolenav d-flex flex-row justify-content-center align-items-center mx-auto">
+        <ul class="d-flex flex-row justify-content-between align-items-center">
+            <li class="mx-3"><a href="add_post.php">Add Posts</a></li>
+        </ul>
+    </div>
+    <?php endif; ?>
+    <!--Gost-->
+    <?php else: ?>
+
+    <?php endif; ?>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
+            <!--Nemoj prikazivati postove za admina-->
+            <?php if(!isset($_SESSION['loggedUser']) || $_SESSION['loggedUser']->role != 'admin'): ?>
             <?php foreach($posts as $post): ?>
             <div class="card mb-3 flex-row">
                 <div class="card-header col-4">
@@ -49,23 +55,18 @@
                             <?php endif; ?>
                         </div>
                     </div>
-
                     <br>
-
                     <h3><?php echo $post->title; ?></h3>
-
                     <p><?php echo substr($post->description,0,50) . "[...]" ?></p><br>
-
-
                     <a href="post.php?post_id=<?php echo $post->id?>" class="btn btn-sm btn-info float-right"> Read
                         more...
                     </a>
-
-
                 </div>
             </div>
-
             <?php endforeach; ?>
+            <?php endif; ?>
+
+
         </div>
     </div>
 </div>

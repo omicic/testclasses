@@ -3,21 +3,36 @@
 require_once 'bootstrap.php';
 
 $posts = $post->selectAll('posts');
-if(isset($_GET['post_id']) && isset($_SESSION['loggedUser'])){
-    
-    $p = $post->selectById('posts',$_GET['post_id']);
-   if($p){
-    $path = "uploads/" . $p[0]->imagepath;
-    if($path){
-        if(!unlink($path)){
-            echo "Not Working";
-        } else {
-        $post->deleteById('posts',$_GET['post_id']);
-        //$posts = $post->selectAll('posts');
-        } 
-    } 
-   }
-}
+
+if(isset($_SESSION['loggedUser'])){
+
+    if($_SESSION['loggedUser']->role == 'user'){
+        //Delete post - if user is logged get post_id from a href, select post, if exist delete post and delete image from uploads folder
+        if(isset($_GET['post_id'])){   
+            $p = $post->selectById('posts',$_GET['post_id']);
+            if($p){
+                $path = "uploads/" . $p[0]->imagepath;
+                if($path){
+                    if(!unlink($path)){
+                        echo "Not Working";
+                    } else {
+                    $post->deleteById('posts',$_GET['post_id']);
+                    } 
+                } 
+            }
+        }
+    }
+
+    if($_SESSION['loggedUser']->role == 'admin'){
+        
+    }
+   
+} 
+
+
+
+
+
 
 
 

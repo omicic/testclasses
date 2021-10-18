@@ -7,11 +7,10 @@ if(isset($_SESSION['loggedUser'])){
 }
 
 if(isset($_POST['registerBtn'])){
-    $user->registerUser();
+    $user->registerUser('user');
 }
 
 if(isset($_POST['loginBtn'])){
-    
     $user->loginUser();
 }
 
