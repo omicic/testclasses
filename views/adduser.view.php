@@ -20,12 +20,13 @@
                     required><br>
 
                 <?php if($_SESSION['loggedUser']->role=='admin'): ?>
-                <input type="text" name="register_organisation" placeholder="Organisation" class="form-control"><br>
+                <input type="text" name="register_organisation" placeholder="Organisation" class="form-control"
+                    required><br>
                 <?php endif; ?>
-                <input type="text" name="register_address" placeholder="Address" class="form-control"><br>
+                <input type="text" name="register_address" placeholder="Address" class="form-control" required><br>
                 <input type="text" name="register_city" placeholder="City" class="form-control" required><br>
                 <input type="text" name="register_country" placeholder="Country" class="form-control" required><br>
-                <input type="text" name="register_phone" placeholder="phone" class="form-control"><br>
+                <input type="text" name="register_phone_number" placeholder="phone" class="form-control"><br>
 
                 <button type="submit" name="user_sub_btn" class="form-control btn btn-primary mb-5">Add User</button>
             </form>

@@ -6,17 +6,70 @@ class User extends QueryBuilder {
     public $loggedUser = null;
 
     public function registerUser($role){
+        $errors = [];
 
-        $name = $_POST['register_name'];
-        $email = $_POST['register_email'];
-        $password = $_POST['register_password'];
+        if(isset($_POST['register_name'])){
+            $name = $_POST['register_name'];
+        } else{
+            $register_name = "Email is required";
+            array_push($error,$register_name_error);
+        }
 
-        $sql = "INSERT INTO users VALUES(NULL,?,?,?,?)";
-        $query = $this->db->prepare($sql);
-        $query->execute([$name,$email,$password,$role]);
+        if(isset($_POST['register_email'])){
+            $email = $_POST['register_email'];
+        } else{
+            $register_email = "register_email is required";
+            array_push($error,$register_email_error);
+        }
 
-        if($query){
-            $this->register_result = true;
+        if(isset($_POST['register_password'])){
+            $password = $_POST['register_password'];
+        }else{
+            $register_password = "register_password is required";
+            array_push($error,$register_password_error);
+        }
+
+        if(isset($_POST['register_organisation'])){
+            $organisation = $_POST['register_organisation'];
+        }else{
+            $organisation = NULL;
+        
+        }
+
+        if(isset($_POST['register_address'])){
+            $address = $_POST['register_address'];
+        }else{
+            $address = NULL;
+        }
+
+        if(isset($_POST['register_city'])){
+            $city = $_POST['register_city'];
+        }else{
+            $register_city = "register_city is required";
+            array_push($error,$register_city_error);
+        }
+
+        if(isset($_POST['register_country'])){
+            $country = $_POST['register_country'];
+        }else{
+            $register_country = "register_country is required";
+            array_push($error,$register_country_error);
+        }
+
+        if(isset($_POST['register_phone_number'])){
+            $phone_number = $_POST['register_phone_number'];
+        }else{
+            $phone_number = NULL;
+        }
+
+        if(count($errors)==0){
+            $sql = "INSERT INTO users VALUES(NULL,?,?,?,?,?,?,?,?,?)";
+            $query = $this->db->prepare($sql);
+            $query->execute([$name,$email,$password,$role,$organisation,$address,$city,$country,$phone_number]);
+    
+            if($query){
+                $this->register_result = true;
+            }
         }
     }
 
@@ -52,16 +105,15 @@ class User extends QueryBuilder {
                 $this->loggedUser = $loggedUser;
         }
     }
- }
-
-
+    }
+ 
     public function getUserWithId($id){
-    $sql = "SELECT * FROM users WHERE id=?";
-    $query = $this->db->prepare($sql);
-    $query->execute([$id]);
+        $sql = "SELECT * FROM users WHERE id=?";
+        $query = $this->db->prepare($sql);
+        $query->execute([$id]);
 
-    $postOwner = $query->fetch(PDO::FETCH_OBJ);
-    return $postOwner;
+        $postOwner = $query->fetch(PDO::FETCH_OBJ);
+        return $postOwner;
     }
 
     public function selectAll($role){

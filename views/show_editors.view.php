@@ -1,7 +1,8 @@
 <?php require_once 'partials/top.php';
 ?>
 
-<div class="header text-center">
+<div class="headerget remote -v
+ text-center">
     <h4>List of Editors</h4>
 </div>
 

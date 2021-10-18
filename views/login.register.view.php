@@ -37,6 +37,21 @@
                 <input type="text" name="register_email" placeholder="Email" class="form-control" required><br>
                 <input type="text" name="register_password" placeholder="Password" class="form-control" required><br>
 
+                <input type="text" name="register_address" placeholder="Optional/Address" class="form-control"><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" name="register_city" placeholder="City" class="form-control" required><br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="register_country" placeholder="Country" class="form-control"
+                            required><br>
+                    </div>
+
+
+                </div>
+
+                <input type="text" name="register_phone_number" placeholder="Optional/Phone" class="form-control"><br>
+
                 <button class="form-control btn btn-warning" name="registerBtn">Register</button>
             </form>
 
