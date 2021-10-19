@@ -41,6 +41,11 @@
   background-color: antiquewhite;
 }
 
+#editor {
+  background-color: #4e6969;
+  color: whitesmoke;
+}
+
 img {
   width: 100%;
   display: block !important;

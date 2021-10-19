@@ -3,7 +3,7 @@
 
 <div class="headerget remote -v
  text-center">
-    <h4>List of Editors</h4>
+    <h4>List of proffesors</h4>
 </div>
 
 <div class="container">
@@ -20,16 +20,16 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($editors as $key => $editor):?>
+            <?php foreach ($proffesors as $key => $proffesor):?>
             <tr>
                 <th scope="row"><?php echo $key+1 ?></th>
-                <td><?php echo $editor->name ?></td>
-                <td><?php echo $editor->email ?></td>
-                <td><?php echo $editor->title ?></td>
-                <td><?php echo $editor->phone_number ?></td>
-                <td><a href="edit_user.php?id=<?php echo $editor->id?>" class="btn btn-warning btn-sm"><i
+                <td><?php echo $proffesor->name ?></td>
+                <td><?php echo $proffesor->email ?></td>
+                <td><?php echo $proffesor->title ?></td>
+                <td><?php echo $proffesor->phone_number ?></td>
+                <td><a href="edit_user.php?id=<?php echo $proffesor->id?>" class="btn btn-warning btn-sm"><i
                             class="fas fa-user-edit"></i></a></td>
-                <td><a href="delete_user.php?id=<?php echo $editor->id?>" class="btn btn-danger btn-sm"><i
+                <td><a href="delete_user.php?id=<?php echo $proffesor->id?>" class="btn btn-danger btn-sm"><i
                             class="fas fa-user-minus"></i></a></td>
             </tr>
             <?php endforeach; ?>

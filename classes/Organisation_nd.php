@@ -1,19 +1,17 @@
 <?php 
 
-class User extends QueryBuilder {
+class Organisation extends QueryBuilder {
 
     public $register_result = NULL;
     public $loggedUser = null;
 
-    public function registerUser($role){
-
-        var_dump($role);
+    public function registerOrganisation(){
         $errors = [];
 
         if(isset($_POST['register_name'])){
             $name = $_POST['register_name'];
         } else{
-            $register_name = "Email is required";
+            $register_name = "register_name is required";
             array_push($error,$register_name_error);
         }
 
@@ -24,18 +22,11 @@ class User extends QueryBuilder {
             array_push($error,$register_email_error);
         }
 
-        if(isset($_POST['register_password'])){
-            $password = $_POST['register_password'];
+        if(isset($_POST['register_linkedin'])){
+            $linkedin = $_POST['register_linkedin'];
         }else{
-            $register_password = "register_password is required";
-            array_push($error,$register_password_error);
-        }
-
-        if(isset($_POST['register_title'])){
-            $title = $_POST['register_title'];
-        }else{
-            $title = NULL;
-        
+            $register_linkedin = "register_linkedin is required";
+            array_push($error,$register_linkedin_error);
         }
 
         if(isset($_POST['register_address'])){
@@ -67,7 +58,7 @@ class User extends QueryBuilder {
         if(count($errors)==0){
             $sql = "INSERT INTO users VALUES(NULL,?,?,?,?,?,?,?,?,?)";
             $query = $this->db->prepare($sql);
-            $query->execute([$name,$email,$password,$role,$title,$address,$city,$country,$phone_number]);
+            $query->execute([$name,$email,$password,$role,$organisation,$address,$city,$country,$phone_number]);
     
             if($query){
                 $this->register_result = true;

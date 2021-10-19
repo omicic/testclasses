@@ -23,7 +23,12 @@ if(isset($_SESSION['loggedUser'])){
         }
     }
 
-    if($_SESSION['loggedUser']->role == 'admin'){
+    if($_SESSION['loggedUser']->role == 'editor'){
+        //var_dump($_GET['role']);
+        if(isset($_GET['role']) && $_GET['role'] === 'user'){
+            $posts = $post->selectAllPublic('1','user');
+            var_dump($posts);
+        }
         
     }
    

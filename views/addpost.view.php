@@ -1,25 +1,10 @@
 <?php require_once 'partials/top.php' ?>
-<nav class="navbar navbar-expand navbar-light bg-light">
-    <a href="" class="navbar-brand">Bloger</a>
-    <ul class="navbar-nav ml-auto">
-        <?php if(isset($_SESSION['loggedUser'])): ?>
-        <li class="nav-item">
-            <a href="logout.php" class="nav-link">Logout</a>
-        </li>
-        <li class="nav-item">
-            <a href="index.php" class="nav-link">Back to Blog</a>
-        </li>
-        <?php endif; ?>
-
-    </ul>
-</nav>
-
 <div class="header text-center">
     <h4>Add New Post</h4>
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-8 offset-2">
             <?php if($post->newPostStatus): ?>
             <div class="alert alert-success">New Post inserted</div>

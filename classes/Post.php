@@ -13,7 +13,7 @@ public $errors=array();
       $title = $_POST['post_title'];
     }
 
-    if(!isset($_POST['post_description']) || empty($_POST['post_title'])){
+    if(!isset($_POST['post_description']) || empty($_POST['post_description'])){
       $this->description_error="Description is required";
       array_push($this->errors, $this->description_error);
     }else{
@@ -39,12 +39,9 @@ public $errors=array();
               $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
               $extensions_arr = ["png",'gif','jpg','jpeg'];
 
-
               if(in_array($imageFileType,$extensions_arr)){
-                //var_dump($target_file);
                 if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
-                // var_dump('1');
-                    $sql = "INSERT INTO posts VALUES (NULL,?,?,?,?,?)";
+                    $sql = "INSERT INTO posts VALUES (NULL,?,?,?,?,?,NULL)";
                     $query = $this->db->prepare($sql);
                     $query->execute([$title, $description, $target_name, $user_id, $createdAt]);
 
@@ -118,6 +115,18 @@ public $errors=array();
         }
       //return $this;
   }
+
+
+
+public function selectAllPublic($public,$role){
+ // var_Dump($public);
+  $sql = "SELECT u.role, p.* FROM posts p INNER JOIN users u ON u.id = p.user_id WHERE p.public=? AND u.role = ?";
+  $query = $this->db->prepare($sql);
+  $query->execute([$public,$role]);
+  var_Dump($query->fetchAll(PDO::FETCH_OBJ));
+  return $query->fetchAll(PDO::FETCH_OBJ);
+ 
+}
 
 
 

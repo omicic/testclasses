@@ -19,9 +19,8 @@
                 <input type="password" name="register_password" placeholder="Password" class="form-control"
                     required><br>
 
-                <?php if($_SESSION['loggedUser']->role=='admin'): ?>
-                <input type="text" name="register_organisation" placeholder="Organisation" class="form-control"
-                    required><br>
+                <?php if($_SESSION['loggedUser']->role=='admin' || $_SESSION['loggedUser']->role=='editor'): ?>
+                <input type="text" name="register_title" placeholder="Title" class="form-control" required><br>
                 <?php endif; ?>
                 <input type="text" name="register_address" placeholder="Address" class="form-control" required><br>
                 <input type="text" name="register_city" placeholder="City" class="form-control" required><br>
