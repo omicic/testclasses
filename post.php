@@ -10,8 +10,5 @@ if(isset($_GET['post_id'])){
 }
 
 
-
-
-
 require_once 'views/post.view.php';
 ?>

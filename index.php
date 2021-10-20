@@ -27,12 +27,30 @@ if(isset($_SESSION['loggedUser'])){
         //var_dump($_GET['role']);
         if(isset($_GET['role']) && $_GET['role'] === 'user'){
             $posts = $post->selectAllPublic('1','user');
-            var_dump($posts);
         }
         
     }
    
 } 
+
+ if(isset($_GET['category'])){
+     if($_GET['category'] == 'news'){     
+        //news from editors
+        $posts = $post->selectAllPublic(1,'editor');
+     } else {
+         //Posts from students
+         if($_GET['category'] == 'blogs'){
+            $posts = $post->selectAllPublic(1,'proffesor');
+         }else{
+            $posts = $post->selectAllPublic(1,'user');
+         }
+        
+     }
+    
+} 
+
+
+
 
 
 

@@ -62,7 +62,6 @@ public $errors=array();
       $query->execute([$id]);
   }
 
-  
   public function update($id){
    // var_dump($id);
     if(!isset($_POST['post_title']) || empty($_POST['post_title'])){
@@ -116,27 +115,12 @@ public $errors=array();
       //return $this;
   }
 
-
-
-public function selectAllPublic($public,$role){
- // var_Dump($public);
-  $sql = "SELECT u.role, p.* FROM posts p INNER JOIN users u ON u.id = p.user_id WHERE p.public=? AND u.role = ?";
-  $query = $this->db->prepare($sql);
-  $query->execute([$public,$role]);
-  var_Dump($query->fetchAll(PDO::FETCH_OBJ));
-  return $query->fetchAll(PDO::FETCH_OBJ);
- 
-}
-
-
-
-  /*   if($query->errno == 0){
-    $result = $query->get_result();
-    $likes = $result->num_rows;
-    return $likes; */
-   // }
- // }
-
+  public function selectAllPublic($public,$role){
+    $sql = "SELECT u.role, p.* FROM posts p INNER JOIN users u ON u.id = p.user_id WHERE p.public=? AND u.role = ?";
+    $query = $this->db->prepare($sql);
+    $query->execute([$public,$role]);
+    return $query->fetchAll(PDO::FETCH_OBJ);
+  }
 
 
 }
