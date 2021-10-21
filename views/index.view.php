@@ -41,6 +41,7 @@
                 <div class="dropdown-content">
                     <a href="#"><a href="add_user.php"> Add Proffesor</a></a>
                     <a href="#"><a href="add_post.php"> Add News</a></a>
+                    <a href="#"><a href="add_department.php"> Add Department</a></a>
                     <a href="#"><a href="add_subject.php"> Add Subject</a></a>
                 </div>
             </div>

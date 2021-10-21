@@ -156,3 +156,18 @@ ul {
 
 
 }
+
+
+.section {
+
+    background: whitesmoke;
+    padding: 10px;
+
+    .subject_selection {
+        flex: 0 0 80%;
+        border: none;
+        padding: 7px 10px;
+        border-bottom: 1px solid lightgray;
+
+    }
+}
