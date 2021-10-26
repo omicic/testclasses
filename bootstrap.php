@@ -12,12 +12,14 @@ require 'classes/Comment.php';
 require 'classes/Subject.php';
 require 'classes/Section.php';
 require 'classes/Department.php';
+//require 'classes/Contact.php'
 
 $query = new QueryBuilder($db);
 $user = new User($db);
 $post = new Post($db);
 $like = new Like($db);
 $comment = new Comment($db);
+
 
 $subject = new Subject($db);
 $section = new Section($db);
