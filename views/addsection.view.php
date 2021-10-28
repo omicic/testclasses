@@ -4,19 +4,20 @@
 
 <div class="header text-center">
     <a href="index.php" class="nav-link">Back</a>
-    <h4>Add Class </h4>
+    <h4>Add Section </h4>
 </div>
 
 <div class="container">
     <div class="row justify-content-center m-5">
         <div class="col-8">
             <form action="add_section.php" method="POST">
-                <input type="text" name="register_name" placeholder="Name for example: I, II... " class="form-control"
+                <input type="text" name="register_name" placeholder="Name of Section " class="form-control"
                     required><br>
                 <textarea name="register_description" placeholder="Description" class="form-control" cols="30"
                     rows="10"></textarea>
 
-                <button type="submit" name="section_sub_btn" class="form-control btn btn-primary mb-5">Add User</button>
+                <button type="submit" name="section_sub_btn" class="form-control btn btn-primary mb-5">Add
+                    Section</button>
             </form>
         </div>
     </div>

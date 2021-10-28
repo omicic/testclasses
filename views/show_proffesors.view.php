@@ -1,12 +1,12 @@
 <?php require_once 'partials/top.php';
 ?>
 
-<div class="headerget remote -v
- text-center">
-    <h4>List of proffesors</h4>
+<div class="header text-center">
+    <a href="index.php" class="nav-link">Back</a>
+    <h4>List of Proffesors </h4>
 </div>
 
-<div class="container">
+<div class="container mt-5">
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -15,8 +15,8 @@
                 <th scope="col">Email</th>
                 <th scope="col">Title</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Remove</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

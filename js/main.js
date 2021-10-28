@@ -20,12 +20,12 @@ function updateValue(e) {
  e.target.value;
 }
 
-let btn_subject_to_department = document.querySelector('#add_subject_to_department_btn');
-btn_subject_to_department.addEventListener('click', addToTable);
+let btn_section_to_department = document.querySelector('#add_section_to_department_btn');
+btn_section_to_department.addEventListener('click', addToTable);
 let new_department = {
     'name' : '',
     'description':'',
-    'subjects' : []
+    'sections' : []
 };
 
 let subject_dept = [];
@@ -64,7 +64,7 @@ function addToTable(){
     new_department = {
         'name' : registerNameInput.value,
         'description':register_description.value,
-        'subjects' : subject_dept
+        'sections' : subject_dept
     };
 
     console.log(JSON.stringify(new_department));

@@ -7,13 +7,13 @@ class Department extends QueryBuilder {
 
     public function createDepartment(){
 
-        //var_dump('1');
+        var_dump($_POST['arraySubjects']);
 
         $errors = [];
 
-        if(isset($_GET['arraySubjects'])){
- 
-            $new_department = json_decode($_GET['arraySubjects']);
+        if(isset($_POST['arraySubjects'])){
+            //var_dump($_POST['arraySubjects']);
+            $new_department = json_decode($_POST['arraySubjects']);
             if(isset($new_department->name)){
                 $name = $new_department->name;
             }else{
@@ -26,11 +26,8 @@ class Department extends QueryBuilder {
             }
 
             if(isset($new_department->name)){
-                $subjects = $new_department->subjects;//var_dump($subjects);   
-   
-            }
-           
-           
+                $sections = $new_department->sections; //var_dump($subjects);      
+            }        
         }
 
         if(count($errors)==0){
@@ -41,16 +38,16 @@ class Department extends QueryBuilder {
             //var_dump($last_id);
 
             if($query){
-                foreach ($subjects as $id => $subject) {
-                    $sql = "INSERT INTO department_subjects VALUES(NULL,?,?,NULL)";
+                foreach ($sections as $id => $section) {
+                    $sql = "INSERT INTO department_sections VALUES(NULL,?,?,NULL)";
                     $query = $this->db->prepare($sql);
-                    $query->execute([$last_id,$subject]);
+                    $query->execute([$last_id,$section]);
                     
                  } 
 
                  return $this->register_result = true;
             } 
-        }
+        } 
     }
 
  

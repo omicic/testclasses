@@ -36,6 +36,7 @@
             <li class="mx-3"><a href="index.php">Home</a></li>
             <li class="mx-3"><a href="index.php?category=studentsblogs">Student's posts</a></li>
             <li class="mx-3"><a href="index.php?category=news">News</a></li>
+            <li class="mx-3"><a href="show_departments.php">Departments</a></li>
             <li class="mx-3"><a href="show_proffesors.php">Our Proffesors</a></li>
             <div class="dropdown">
                 <button class="dropbtn">Settings&nbsp;<i class="fas fa-chevron-down"></i></button>
@@ -43,6 +44,7 @@
                     <a href="#"><a href="add_user.php"> Add Proffesor</a></a>
                     <a href="#"><a href="add_post.php"> Add News</a></a>
                     <a href="#"><a href="add_department.php"> Add Department</a></a>
+                    <a href="#"><a href="add_section.php"> Add Section</a></a>
                     <a href="#"><a href="add_subject.php"> Add Subject</a></a>
                 </div>
             </div>

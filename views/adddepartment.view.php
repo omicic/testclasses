@@ -17,23 +17,23 @@
 
             </div>
 
-            <h5>Add Subjects to Department</h5>
+            <h5>Add Sections to Department</h5>
             <div class="section">
 
                 <div class="subject_to_deprt d-flex justify-content-center align-items-center">
                     <select class="subject_selection" name="subject">
-                        <?php foreach($subjects as $subject): ?>
-                        <option value="<?php echo $subject->id ?>"><?php echo $subject->name ?></option>
+                        <?php foreach($sections as $section): ?>
+                        <option value="<?php echo $section->id ?>"><?php echo $section->name ?></option>
                         <?php endforeach; ?>
                     </select><br>
-                    <button id="add_subject_to_department_btn" class="btn btn-warning">Add Subject</button>
+                    <button id="add_section_to_department_btn" class="btn btn-warning">Add Section</button>
                 </div><br>
 
                 <table class="table table-striped subj_to_dept_table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col" width="80%">Subject Name</th>
+                            <th scope="col" width="80%">Section Name</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -44,9 +44,9 @@
 
             </div>
 
-            <form class="mt-5" action="add_department.php" method="GET">
-                <input hidden class="inputArraySubjects form-control" name="arraySubjects" type="text" value="">
-                <button name="add_dept_btn" class="btn btn-primary">Add department</button>
+            <form class="mt-5" action="add_department.php" method="POST">
+                <input class="inputArraySubjects form-control" name="arraySubjects" type="text" value="">
+                <button name="add_dept_btn" class="btn btn-primary" class="form-control">Add department</button>
             </form>
 
 

@@ -10,19 +10,21 @@ if(!isset($_SESSION['loggedUser'])){
 
 
 
-$subject_for_add = [];
-$subjects = $subject->selectAll('subjects');
+//$subject_for_add = [];
+//$subjects = $subject->selectAll('subjects');
+$sections_for_add = [];
+$sections = $section->selectAll('sections');
+var_dump($sections);
 
 
-
-if(isset($_GET['add_dept_btn'])){
+if(isset($_POST['add_dept_btn'])){
    
-   // var_dump("proslo");
+   var_dump($_POST['arraySubjects']);
     //$data = ; 
 
     if($department->createDepartment()){
       header("Location: index.php");
-    }
+    } 
 
 }
   //$subject_dept=$_POST['data'];
