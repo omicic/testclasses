@@ -21,9 +21,10 @@
     <div class="rolenav d-flex flex-row justify-content-center align-items-center mx-auto">
         <ul class="d-flex flex-row justify-content-between align-items-center">
             <li class="mx-3"><a href="index.php">Home</a></li>
-            <li class="mx-3"><a href="index.php?category=studentsblogs">Student's posts</a></li>
-            <li class="mx-3"><a href="index.php?category=news">News</a></li>
+            <li class="mx-3"><a href="show_departments.php">Departments</a></li>
             <li class="mx-3"><a href="show_proffesors.php">Our Proffesors</a></li>
+            <li class="mx-3"><a href="index.php?category=news">News</a></li>
+            <li class="mx-3"><a href="index.php?category=studentsblogs">Student's posts</a></li>
             <li class="mx-3"><a href="add_post.php">Add Post</a></li>
         </ul>
     </div>
@@ -59,8 +60,7 @@
                 <button class="dropbtn">Settings&nbsp;<i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
                     <a href="#"><a href="add_section.php"> Add Class</a></a>
-                    <a href="#"><a href="add_department.php"> Add Department</a></a>
-                    <a href="#"><a href="add_post.php"> Add News</a></a>
+                    <a href="#"><a href="add_post.php"> Add Posts</a></a>
                 </div>
             </div>
         </ul>

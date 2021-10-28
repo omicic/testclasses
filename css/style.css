@@ -144,4 +144,16 @@ ul li a:hover {
   border: none;
   padding: 7px 10px;
   border-bottom: 1px solid lightgray;
+}
+
+/***Add department***/
+.addDepartment .register_name {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.addDepartment textarea {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 50px;
 }/*# sourceMappingURL=style.css.map */

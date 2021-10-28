@@ -34,15 +34,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8  py-5">
             <form action="contact.php" method="POST" class="d-flex flex-column">
-                <input type="text" name="name" placeholder="Enter name" class="form-control"><br>
+                <input type="text" name="name" placeholder="Enter name" class="form-control mb-3"><br>
 
                 <input type="email" name="sender_email" placeholder="Enter your email" required
-                    class="form-control"><br>
+                    class="form-control mb-3"><br>
 
-                <input type="text" name="subject" placeholder="Enter Subject" class="form-control"><br>
+                <input type="text" name="subject" placeholder="Enter Subject" class="form-control mb-3"><br>
 
                 <textarea name="message" cols="30" rows="10" placeholder="Message" required
-                    class="form-control"></textarea><br>
+                    class="form-control mb-3"></textarea><br>
 
                 <button name="btnSend" class="brn btn-primary btn-sm">Send</button>
             </form>

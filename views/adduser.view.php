@@ -1,7 +1,5 @@
 <?php require_once 'partials/top.php' ?>
 
-
-
 <div class="header text-center">
     <a href="index.php" class="nav-link">Back</a>
     <h4>Add <?php if($_SESSION['loggedUser']->role=='admin'): ?>Editor <?php else: ?> Proffesor <?php endif; ?> </h4>

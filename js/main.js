@@ -1,15 +1,37 @@
 let filepath = document.querySelector('.filepath');
 let fileimage = document.querySelector('.fileimage');
 
+//for sending subjects to add_department.php
+let inputHiddenArray = document.querySelector('.inputArraySubjects');
+
 
 let subj_to_dept_table = document.querySelector('.subj_to_dept_table');
 let subj_to_dept_table_tbody = document.querySelector('.subj_to_dept_table tbody');
+
+let registerNameInput = document.querySelector('.register_name');
+let register_description = document.querySelector('.add_department_description');
 let subject_selection = document.querySelector('.subject_selection');
+
+//let regitster_name = document.querySelector(`input[name='register_name']`);
+
+//regitster_name.addEventListener('input', updateValue);
+
+function updateValue(e) {
+ e.target.value;
+}
 
 let btn_subject_to_department = document.querySelector('#add_subject_to_department_btn');
 btn_subject_to_department.addEventListener('click', addToTable);
+let new_department = {
+    'name' : '',
+    'description':'',
+    'subjects' : []
+};
+
 let subject_dept = [];
 let i=1;
+
+
 
 if(filepath){
     filepath.onchange = evt => {
@@ -25,7 +47,8 @@ function addToTable(){
     //console.log(subject_selection.value);
     let id = subject_selection.value;
     let name = subject_selection.options[subject_selection.selectedIndex].text;
-    //subject_dept.push(id);
+    subject_dept.push(id);
+    //console.group(subject_dept);
   
     let text = `
     <tr id='${id}' name="row_subject">
@@ -37,24 +60,19 @@ function addToTable(){
     `;
 
     subj_to_dept_table_tbody.innerHTML += text;
-    //sendSubjectsForDepartment();
+
+    new_department = {
+        'name' : registerNameInput.value,
+        'description':register_description.value,
+        'subjects' : subject_dept
+    };
+
+    console.log(JSON.stringify(new_department));
+
+    inputHiddenArray.value = JSON.stringify(new_department);
+ 
 }
 
-/* function sendSubjectsForDepartment(){
-    
-   var jsonString = JSON.stringify(subject_dept);
-  
-   $.ajax({
-        type: "POST",
-        url: "add_department.php",
-        data: {result : jsonString}, 
-        cache: false,
-
-        success: function(){
-           console.log(subject_dept);
-        }
-    });
-} */
 
 
 
