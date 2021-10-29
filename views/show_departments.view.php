@@ -5,7 +5,7 @@
 
 <div class="header text-center">
     <a href="index.php" class="nav-link">Back</a>
-    <h4>List of departments </h4>
+    <h4>List of Departments </h4>
 </div>
 
 <div class="container mt-5">

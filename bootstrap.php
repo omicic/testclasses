@@ -12,7 +12,7 @@ require 'classes/Comment.php';
 require 'classes/Subject.php';
 require 'classes/Section.php';
 require 'classes/Department.php';
-//require 'classes/Contact.php'
+require 'classes/Department_Sections.php';
 
 $query = new QueryBuilder($db);
 $user = new User($db);
@@ -24,6 +24,7 @@ $comment = new Comment($db);
 $subject = new Subject($db);
 $section = new Section($db);
 $department = new Department($db);
+$departmentsections = new Department_Sections($db);
 
 
 

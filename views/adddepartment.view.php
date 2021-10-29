@@ -49,14 +49,6 @@
                 <button name="add_dept_btn" class="btn btn-primary" class="form-control">Add department</button>
             </form>
 
-
-
-
-
-            <!--   <a href="add_department.php?new_department=true" name="department_sub_btn" class="btn btn-primary my-3">Add
-                Department</a> -->
-
-
         </div>
     </div>
 </div>

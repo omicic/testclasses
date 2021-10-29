@@ -22,16 +22,25 @@ public function __construct($db){
         $query = $this->db->prepare($sql);
         $query->execute([$id]);
         return $query->fetchAll(PDO::FETCH_OBJ);
-      }
+    }
 
       public function deleteById($table,$id){
         $sql = "DELETE FROM {$table} WHERE id=?";
         $query = $this->db->prepare($sql);
         $query->execute([$id]);
 
-        $result = $query->get_result();
-        $likes = $result->num_rows;
-        return $likes;
+        if($query){
+            return true;
+        }else{
+            return false;
+        }
+
+        //$result = $query->get_result();
+
+        //$likes = $result->num_rows;
+       // return $likes;
     }
+
+    
 }
 ?>
