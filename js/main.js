@@ -1,8 +1,20 @@
+
+let subjects_dept = [];
+let i=1;
+let new_department = {
+    'name' : '',
+    'description':'',
+    'sections' : []
+};
+
 let filepath = document.querySelector('.filepath');
 let fileimage = document.querySelector('.fileimage');
 
 //for sending subjects to add_department.php
 let inputHiddenArray = document.querySelector('.inputArraySubjects');
+
+// for sending subjects to show_department_sections.php
+let inputHidden = document.querySelector('.inputHidden');
 
 
 let subj_to_dept_table = document.querySelector('.subj_to_dept_table');
@@ -12,9 +24,7 @@ let registerNameInput = document.querySelector('.register_name');
 let register_description = document.querySelector('.add_department_description');
 let subject_selection = document.querySelector('.subject_selection');
 
-//let regitster_name = document.querySelector(`input[name='register_name']`);
-
-//regitster_name.addEventListener('input', updateValue);
+let dep_name = document.querySelector('.dep_name');
 
 function updateValue(e) {
  e.target.value;
@@ -24,25 +34,8 @@ function updateValue(e) {
 let btn_section_to_department = document.querySelector('#add_section_to_department_btn');
 if(btn_section_to_department){
     btn_section_to_department.addEventListener('click', addToTable);
+    getSectionsFromTable();
 }
-
-
-let new_department = {
-    'name' : '',
-    'description':'',
-    'sections' : []
-};
-
-//from show_department_section.view.php
-let add_section_btn = document.querySelector('#add_section_btn');
-//console.log(add_section_btn);
-add_section_btn.addEventListener('click', addToTable);
-//let section_selection = document.querySelector('.section_selection');
-
-let subject_dept = [];
-let i=1;
-
-
 
 if(filepath){
     filepath.onchange = evt => {
@@ -55,14 +48,12 @@ if(filepath){
 
 function addToTable(e){
 
-    console.log(this.id);
     if(this.id=="add_section_btn"){
         sections=[];
     }
     let id = subject_selection.value;
     let name = subject_selection.options[subject_selection.selectedIndex].text;
-    subject_dept.push(id);
-    console.group(subject_dept);
+    subjects_dept.push(id);
   
     let text = `
     <tr id='${id}' name="row_subject">
@@ -74,25 +65,12 @@ function addToTable(e){
 
     subj_to_dept_table_tbody.innerHTML += text;
 
-    if(this.id=="add_section_to_department_btn"){
-        new_department = {
+    new_department = {
             'name' : registerNameInput.value,
             'description':register_description.value,
-            'sections' : subject_dept
+            'sections' : subjects_dept
         };
-        inputHiddenArray.value = JSON.stringify(new_department);
-    }else{
-        sections.push(subject_dept);
-    }
- 
-
-    console.log(sections);
-
-    
+    inputHiddenArray.value = JSON.stringify(new_department);
  
 }
-
-
-
-
 

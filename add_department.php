@@ -5,13 +5,6 @@ if(!isset($_SESSION['loggedUser'])){
     header('Location: index.php');
 }
 
-
-//var_dump($subjects);
-
-
-
-//$subject_for_add = [];
-//$subjects = $subject->selectAll('subjects');
 $sections_for_add = [];
 $sections = $section->selectAll('sections');
 
@@ -20,7 +13,8 @@ if(isset($_POST['add_dept_btn'])){
  
     if($last_id_department){  
       $new_department = json_decode($_POST['arraySubjects']);
-      if($departmentsections->createDepartmentSectons($last_id_department,$new_department)){
+      $new_department_sections = $new_department->sections;
+      if($departmentsections->createDepartmentSectons($last_id_department,$new_department_sections)){
         header("Location: show_departments.php");
       } 
       
