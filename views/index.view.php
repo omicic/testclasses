@@ -39,13 +39,13 @@
             <li class="mx-3"><a href="show_departments.php">Departments</a></li>
             <li class="mx-3"><a href="show_proffesors.php">Our Proffesors</a></li>
             <div class="dropdown">
-                <button class="dropbtn">Settings&nbsp;<i class="fas fa-chevron-down"></i></button>
+                <button class="dropbtn">Add&nbsp;<i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
-                    <a href="#"><a href="add_user.php"> Add Proffesor</a></a>
-                    <a href="#"><a href="add_post.php"> Add News</a></a>
-                    <a href="#"><a href="add_department.php"> Add Department</a></a>
-                    <a href="#"><a href="add_section.php"> Add Section</a></a>
-                    <a href="#"><a href="add_subject.php"> Add Subject</a></a>
+                    <a href="#"><a href="add_user.php">+ Proffesor</a></a>
+                    <a href="#"><a href="add_post.php">+ News</a></a>
+                    <a href="#"><a href="add_department.php">+ Department</a></a>
+                    <a href="#"><a href="add_section.php">+ Section</a></a>
+                    <a href="#"><a href="add_subject.php">+ Subject</a></a>
                 </div>
             </div>
         </ul>

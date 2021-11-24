@@ -27,6 +27,23 @@
   color: cyan;
 }
 
+.mini-nav a {
+  margin: 10px;
+}
+
+.adisabled {
+  color: gray;
+}
+
+span {
+  color: goldenrod;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+  font-size: 1.5rem;
+}
+
 .success {
   align-items: center;
   color: green;
@@ -156,9 +173,4 @@ ul li a:hover {
   width: 100%;
   padding: 10px 20px;
   margin-bottom: 50px;
-}
-
-/* .next_btn {
-    position: relative;
-    top: -35px;
-} *//*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
