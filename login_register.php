@@ -1,6 +1,9 @@
 <?php 
 require_once 'bootstrap.php';
 
+/* $classes = $class->selectAll('classes');
+var_dump($classes); */
+
 //da ne moze da ide na register stranicu ako je logovan
 if(isset($_SESSION['loggedUser'])){
     header("Location: index.php");

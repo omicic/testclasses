@@ -46,11 +46,20 @@
                         <input type="text" name="register_country" placeholder="Country" class="form-control"
                             required><br>
                     </div>
-
-
                 </div>
 
                 <input type="text" name="register_phone_number" placeholder="Optional/Phone" class="form-control"><br>
+
+                <!--                 <div class="input-group">
+                    <select class="custom-select" name="class" id="inputGroupSelect04"
+                        aria-label="Example select with button addon">
+                        <option selected>Choose...</option>
+                        <?php foreach($classes as $class): ?>
+                        <option value="<?php echo $class->id ?>"><?php echo $class->class?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div> -->
 
                 <button class="form-control btn btn-warning" name="registerBtn">Register</button>
             </form>

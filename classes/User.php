@@ -64,11 +64,19 @@ class User extends QueryBuilder {
             $phone_number = NULL;
         }
 
+        if(isset($_POST['class'])){
+            $class = $_POST['class'];
+        }else{
+            $phone_number = NULL;
+        }
+
         if(count($errors)==0){
             $sql = "INSERT INTO users VALUES(NULL,?,?,?,?,?,?,?,?,?)";
             $query = $this->db->prepare($sql);
             $query->execute([$name,$email,$password,$role,$title,$address,$city,$country,$phone_number]);
-    
+            $last_id = $this->db->lastInsertId();
+
+
             if($query){
                 $this->register_result = true;
             }

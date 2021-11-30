@@ -46,6 +46,8 @@
                     <a href="#"><a href="add_department.php">+ Department</a></a>
                     <a href="#"><a href="add_section.php">+ Section</a></a>
                     <a href="#"><a href="add_subject.php">+ Subject</a></a>
+                    <a href="#"><a href="add_class.php">+ Class</a></a>
+                    <a href="#"><a href="add_school_year.php">+ School Year</a></a>
                 </div>
             </div>
         </ul>
@@ -61,7 +63,6 @@
             <div class="dropdown">
                 <button class="dropbtn">Settings&nbsp;<i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
-                    <a href="#"><a href="add_section.php"> Add Class</a></a>
                     <a href="#"><a href="add_post.php"> Add Posts</a></a>
                 </div>
             </div>
