@@ -16,12 +16,14 @@ require 'classes/Department_Sections.php';
 require 'classes/Klasa.php';
 require 'classes/School_Year.php';
 require 'classes/Student_Year.php';
+require 'classes/Test.php';
 
 $query = new QueryBuilder($db);
 $user = new User($db);
 $post = new Post($db);
 $like = new Like($db);
 $comment = new Comment($db);
+$test = new Test($db);
 
 
 

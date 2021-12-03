@@ -36,6 +36,16 @@ class School_Year extends QueryBuilder {
         }
     }
 
+    
+
+    public function selectByActive(){
+        //var_dump($id);
+         $sql = "SELECT * FROM school_year WHERE active=?";
+         $query = $this->db->prepare($sql);
+         $query->execute(['1']);
+         return $query->fetchAll(PDO::FETCH_OBJ);
+     }
+
 
 
 
