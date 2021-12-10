@@ -30,7 +30,6 @@ for (let i = 0; i < tableRow.length; i++) {
 //deleting element from array test_ids_for_deleting when we checked selection
 function check(e){
   
-
     if(e.target.checked){
         test_ids_for_deleting.push(e.target.id);
     }else{

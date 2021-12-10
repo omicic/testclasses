@@ -61,10 +61,13 @@
             <li class="mx-3"><a href="index.php?category=studentsblogs">Student's posts</a></li>
             <li class="mx-3"><a href="index.php?category=news">News</a></li>
             <div class="dropdown">
-                <button class="dropbtn">Settings&nbsp;<i class="fas fa-chevron-down"></i></button>
+                <button class="dropbtn">Action&nbsp;<i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
+                    <a href="#"><a href="show_tests.php"> List of Tests</a></a>
+                    <hr style="margin:0px">
                     <a href="#"><a href="add_post.php"> Add Post</a></a>
                     <a href="#"><a href="add_test.php"> Add Test</a></a>
+
                 </div>
             </div>
         </ul>

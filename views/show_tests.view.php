@@ -2,7 +2,7 @@
 ?>
 
 <div class="header text-center">
-    <a href="index.php" class="nav-link">Back</a>
+    <a href="add_test.php" class="nav-link">Add Test</a>
     <h4>List of Tests </h4>
 </div>
 
