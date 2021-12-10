@@ -1,11 +1,88 @@
-
 let subjects_dept = [];
-let i=1;
+let i = 1;
 let new_department = {
-    'name' : '',
-    'description':'',
-    'sections' : []
+    'name': '',
+    'description': '',
+    'sections': []
 };
+
+let success = document.querySelector('#success');
+if (success) {
+    setTimeout(() => {
+        success.style.display = 'none';
+    }, 3000);
+}
+
+
+let checkAllTests = document.querySelector('#checkAllTests');
+checkAllTests.addEventListener('change', checkAll);
+
+let testsTbody = document.querySelector('.testsTbody');
+var tableRow = testsTbody.getElementsByTagName('tr');
+let test_ids_for_deleting = [];
+
+for (let i = 0; i < tableRow.length; i++) {
+    if (tableRow[i].getElementsByClassName('id') != 0) {
+        tableRow[i].getElementsByClassName('checkTest')[0].addEventListener('change', check);
+    }
+}
+
+//deleting element from array test_ids_for_deleting when we checked selection
+function check(e){
+  
+
+    if(e.target.checked){
+        test_ids_for_deleting.push(e.target.id);
+    }else{
+    //this is for deleting element
+    test_ids_for_deleting.forEach((element,index) => {      
+        if(e.target.id == element){
+            test_ids_for_deleting.splice(index,1);
+        }
+    });
+    }
+
+
+
+}
+
+//for deleting tests
+function checkAll() {
+
+    if (checkAllTests.checked) {
+        checkAllTests.value = '1';
+
+        for (let i = 0; i < tableRow.length; i++) {
+            if (tableRow[i].getElementsByClassName('id') != 0) {
+                tableRow[i].getElementsByClassName('checkTest')[0].value = '1';
+                tableRow[i].getElementsByClassName('checkTest')[0].checked = true;
+                test_ids_for_deleting.push(tableRow[i].getElementsByClassName('checkTest')[0].id);
+                //console.log(test_ids_for_deleting);
+            }
+        }
+    } else {
+        checkAllTests.value = '0';
+        for (let i = 0; i < tableRow.length; i++) {
+            if (tableRow[i].getElementsByClassName('id') != 0) {
+                tableRow[i].getElementsByClassName('checkTest')[0].value = '0';
+                tableRow[i].getElementsByClassName('checkTest')[0].checked = false;                         
+            }
+        }
+        test_ids_for_deleting=[];
+    }
+
+}
+
+let buttonDelete = document.querySelector('.deletebtn');
+buttonDelete.addEventListener('click',sendData);
+function sendData(){
+    this.value = test_ids_for_deleting; 
+}
+//document.getElementById('id').value = test_ids_for_deleting;   
+    // url: "../" + "testclasses/show_tests.php?deletedsuccesfuly"
+
+
+
 
 let filepath = document.querySelector('.filepath');
 let fileimage = document.querySelector('.fileimage');
@@ -27,34 +104,34 @@ let subject_selection = document.querySelector('.subject_selection');
 let dep_name = document.querySelector('.dep_name');
 
 function updateValue(e) {
- e.target.value;
+    e.target.value;
 }
 
 //from add_department.view.php
 let btn_section_to_department = document.querySelector('#add_section_to_department_btn');
-if(btn_section_to_department){
+if (btn_section_to_department) {
     btn_section_to_department.addEventListener('click', addToTable);
     getSectionsFromTable();
 }
 
-if(filepath){
+if (filepath) {
     filepath.onchange = evt => {
         const [file] = filepath.files
         if (file) {
             fileimage.src = URL.createObjectURL(file)
         }
-      }
+    }
 }
 
-function addToTable(e){
+function addToTable(e) {
 
-    if(this.id=="add_section_btn"){
-        sections=[];
+    if (this.id == "add_section_btn") {
+        sections = [];
     }
     let id = subject_selection.value;
     let name = subject_selection.options[subject_selection.selectedIndex].text;
     subjects_dept.push(id);
-  
+
     let text = `
     <tr id='${id}' name="row_subject">
         <th scope="row">${i++}</th>
@@ -66,11 +143,10 @@ function addToTable(e){
     subj_to_dept_table_tbody.innerHTML += text;
 
     new_department = {
-            'name' : registerNameInput.value,
-            'description':register_description.value,
-            'sections' : subjects_dept
-        };
+        'name': registerNameInput.value,
+        'description': register_description.value,
+        'sections': subjects_dept
+    };
     inputHiddenArray.value = JSON.stringify(new_department);
- 
-}
 
+}

@@ -1,10 +1,10 @@
 <?php 
 class Test extends QueryBuilder{
 
-public $newPostStatus = NULL;
+public $newTestStatus = NULL;
 public $errors=array();
 
-  public function createTest(){
+  public function createTest($user_id){
 
     if(!isset($_POST['test_title']) || empty($_POST['test_title'])){
         $this->title_error = "Title is required";
@@ -19,12 +19,30 @@ public $errors=array();
     }else{
       $description = $_POST['test_description'];  
     }
+
+    if(!isset($_POST['points']) || empty($_POST['points'])){
+      $this->points_error="Points is required";
+      array_push($this->errors, $this->points_error);
+    }else{
+      $points = $_POST['points'];  
+    }
+
+    if(!isset($_POST['timer']) || empty($_POST['timer'])){
+      $this->timer_error="Timer is required";
+      array_push($this->errors, $this->timer_error);
+    }else{
+      $timer = $_POST['timer'];  
+    }
+
+    if(isset($_POST['department_selection']) || empty($_POST['department_selection'])){
+      $department_id = $_POST['department_selection'];  
+    }
   
     if(count($this->errors)==0){
               
-                    $sql = "INSERT INTO posts VALUES (NULL,?,?,?,?,?,NULL)";
+                    $sql = "INSERT INTO tests VALUES (NULL,?,?,?,?,?,?)";
                     $query = $this->db->prepare($sql);
-                    $query->execute([ $user_id, $title, $description,$department_id, $points,$public,$timer]);
+                    $query->execute([$user_id, $title, $description,$department_id,$points,$timer]);
 
                     if($query){
                         $this->newTestStatus=true;
@@ -94,10 +112,10 @@ public $errors=array();
       //return $this;
   }
 
-  public function selectAllPublic($public,$role){
-    $sql = "SELECT u.role, p.* FROM posts p INNER JOIN users u ON u.id = p.user_id WHERE p.public=? AND u.role = ?";
+  public function selectAllByAdmin($user_id){
+    $sql = "SELECT * FROM tests WHERE admin_id=?";
     $query = $this->db->prepare($sql);
-    $query->execute([$public,$role]);
+    $query->execute([$user_id]);
     return $query->fetchAll(PDO::FETCH_OBJ);
   }
 

@@ -31,6 +31,12 @@
   margin: 10px;
 }
 
+#success {
+  background: #7d8b7d;
+  color: white;
+  padding: 10px 0;
+}
+
 .adisabled {
   color: gray;
 }

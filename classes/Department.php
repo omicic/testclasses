@@ -35,25 +35,17 @@ class Department extends QueryBuilder {
             return $last_id;
         } 
     }
-    
-
-    
+        
     public function updateById($id,$name,$description){
         var_dump($id);
         $sql = "UPDATE departments SET name=?, description=? WHERE id=?";
         $query = $this->db->prepare($sql);
         $query->execute([$name,$description,$id]);
-
         if($query){
             return true;
         }else{
             return false;
         }
-
-        //$result = $query->get_result();
-
-        //$likes = $result->num_rows;
-       // return $likes;
     }
 
 

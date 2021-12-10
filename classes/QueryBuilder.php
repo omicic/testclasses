@@ -25,6 +25,7 @@ public function __construct($db){
     }
 
       public function deleteById($table,$id){
+          var_dump($id);
         $sql = "DELETE FROM {$table} WHERE id=?";
         $query = $this->db->prepare($sql);
         $query->execute([$id]);
@@ -34,14 +35,6 @@ public function __construct($db){
         }else{
             return false;
         }
-
-        //$result = $query->get_result();
-
-        //$likes = $result->num_rows;
-       // return $likes;
-    }
-
-
-    
+    }   
 }
 ?>

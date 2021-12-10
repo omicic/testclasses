@@ -4,21 +4,14 @@ require_once 'bootstrap.php';
 if(!isset($_SESSION['loggedUser'])){
     header('Location: index.php');
 }
+$departments=$department->selectAll('departments');
+$newTest=null;
+if(isset($_POST['test_sub_btn'])){
+  $user_id=$_SESSION['loggedUser']->id; 
+  $department_id= $_POST['department_selection'];
+  $newTest = $test->createTest($user_id);
 
-//$sections_for_add = [];
-//$sections = $section->selectAll('sections');
-
-if(isset($_POST['add_dept_btn'])){
-   $last_id_department=$department->createDepartment();
  
-    if($last_id_department){  
-      $new_department = json_decode($_POST['arraySubjects']);
-      $new_department_sections = $new_department->sections;
-      if($departmentsections->createDepartmentSectons($last_id_department,$new_department_sections)){
-        header("Location: show_test.php");
-      } 
-      
-    }  
 
 }
 
